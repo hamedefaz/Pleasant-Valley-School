@@ -11,9 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//use Illuminate\Routing\Route;
+
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
+Route::get('/', 'Frontend\FrontendController@index');
 
 Auth::routes();
 
