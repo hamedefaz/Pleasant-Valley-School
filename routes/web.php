@@ -27,10 +27,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('logout', '\App\Http\Controllers\Auth\LoginController@logout');
 
 Route::prefix('users')->group(function(){
-    Route::get('/view', 'Backend\UserController@view')->name('user.view');
-    Route::get('/add', 'Backend\UserController@add')->name('user.add');
-    Route::post('/store', 'Backend\UserController@store')->name('user.store');
-    Route::get('/edit/{id}', 'Backend\UserController@edit')->name('user.edit');
-    Route::post('/update/{id}', 'Backend\UserController@update')->name('user.update');
-    Route::get('/delete/{id}', 'Backend\UserController@delete')->name('user.delete');
+    Route::get('/view', 'Backend\UserController@view')->name('users.view');
+    Route::get('/add', 'Backend\UserController@add')->name('users.add');
+    Route::post('/store', 'Backend\UserController@store')->name('users.store');
+    Route::get('/edit/{id}', 'Backend\UserController@edit')->name('users.edit');
+    Route::post('/update/{id}', 'Backend\UserController@update')->name('users.update');
+    Route::get('/delete/{id}', 'Backend\UserController@delete')->name('users.delete');
 });
