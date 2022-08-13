@@ -29,6 +29,26 @@ class UserController extends Controller
         $data->email = $request->email;
         $data->password = bcrypt($request->password);
         $data->save();
-        return redirect()->route('users.view');
+        return redirect()->route('users.view')->with('success', 'Data insertion successful!');
+    }
+
+    public function edit($id){
+        $editData = User::find($id);
+        return view('backend.user.edit-user',compact('editData'));
+    }
+
+    public function update(Request $request, $id){
+        $data = User::find($id);
+        $data->usertype = $request->usertype;
+        $data->name = $request->name;
+        $data->email = $request->email;
+        $data->save();
+        return redirect()->route('users.view')->with('success', 'Data has been updated successfully!');
+    }
+
+    public function delete($id){
+        $user = User::find($id);
+        $user->delete();
+        return redirect()->route('users.view')->with('success', 'Data deletion successful!');
     }
 }

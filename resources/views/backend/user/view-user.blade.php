@@ -57,8 +57,8 @@
                             <td>{{$user->name}}</td>
                             <td>{{$user->email}}</td>
                             <td>
-                                <a title="Edit" class="btn btn-sm btn-primary" href=""><i class="fa fa-edit"></i></a>
-                                <a title="Delete" class="btn btn-sm btn-danger" href=""><i class="fa fa-trash"></i></a>
+                                <a title="Edit" class="btn btn-sm btn-primary" href="{{route('users.edit',$user->id)}}"><i class="fa fa-edit"></i></a>
+                                <a title="Delete" id="delete" class="btn btn-sm btn-danger" href="{{route('users.delete',$user->id)}}"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
                         @endforeach

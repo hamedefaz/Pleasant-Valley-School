@@ -31,6 +31,13 @@
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
   <!-- jQuery -->
   <script src="{{asset('public/backend')}}/plugins/jquery/jquery.min.js"></script>
+  <style type='text/css'>
+    .notifyjs-corner{
+        z-index: 10000 !important;
+    }
+  </style>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -109,6 +116,14 @@
   </aside>
 
   @yield('content')
+  @if(session()->has('success'))
+  <script type="text/javascript">
+    $(function(){
+        $.notify("{{session()->get('success')}}",{globalPosition: 'top right', className: 'success'});
+    });
+  </script>
+  @endif
+
   <footer class="main-footer">
     <strong>Copyright &copy; 2022 <a href="http://pvhs.chicousd.org/">Pleasant Valley School</a>.</strong>
     All rights reserved.
@@ -190,6 +205,32 @@
       "responsive": true,
     });
   });
+</script>
+<script type="text/javascript">
+    $(function(){
+        $(document).on('click','#delete',function(e){
+            e.preventDefault();
+            var link = $(this).attr('href');
+            Swal.fire({
+                title: 'Are you sure?',
+                text: "Deletion is permanent and can't be reverted!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                if (result.isConfirmed) {
+                    window.location.href = link;
+                    Swal.fire(
+                    'Deleted!',
+                    'Your file has been deleted.',
+                    'success'
+                    )
+                }
+                })
+        });
+    });
 </script>
 </body>
 </html>
