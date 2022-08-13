@@ -104,7 +104,7 @@
           <img src="{{asset('public/backend')}}/dist/img/user7-128x128.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><b>Sona Jillani</b></a>
+          <a href="#" class="d-block"><b>Operator</b></a>
         </div>
       </div>
 
@@ -229,6 +229,17 @@
                     )
                 }
                 })
+        });
+    });
+</script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#image').change(function(e){
+            var reader = new FileReader();
+            reader.onload = function(e){
+                $('#showImage').attr('src',e.target.result);
+            }
+            reader.readAsDataURL(e.target.files['0']);
         });
     });
 </script>
