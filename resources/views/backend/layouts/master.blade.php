@@ -91,7 +91,7 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{url('/login')}}" class="brand-link">
+    <a href="{{route('home')}}" class="brand-link">
       <img src="{{asset('public/backend')}}/dist/img/AdminLTELogoStarter.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: 1">
       <span class="brand-text font-weight-light"><b>DASHBOARD</b></span>
     </a>
@@ -101,10 +101,10 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="{{asset('public/backend')}}/dist/img/user7-128x128.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="{{(!empty(Auth::user()->image))?url('public/upload/user_images/'.Auth::user()->image):url('public/upload/no_image.png')}}" style="width: 40px; height: 40px; border: 1px solid #fff;" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><b>Operator</b></a>
+          <a href="{{route('profiles.view')}}" class="d-block"><b>{{Auth::user()->name}}</b></a>
         </div>
       </div>
 
@@ -120,6 +120,13 @@
   <script type="text/javascript">
     $(function(){
         $.notify("{{session()->get('success')}}",{globalPosition: 'top right', className: 'success'});
+    });
+  </script>
+  @endif
+  @if(session()->has('error'))
+  <script type="text/javascript">
+    $(function(){
+        $.notify("{{session()->get('error')}}",{globalPosition: 'top right', className: 'error'});
     });
   </script>
   @endif
