@@ -43,5 +43,47 @@ Route::group(['middleware'=>'auth'], function(){
         Route::get('/password/view', 'Backend\ProfileController@passwordView')->name('profiles.password.view');
         Route::post('/password/update', 'Backend\ProfileController@passwordUpdate')->name('profiles.password.update');
     });
+
+    Route::prefix('setups')->group(function(){
+        //student class
+        Route::get('/student/class/view', 'Backend\Setup\StudentClassController@view')->name('setups.student.class.view');
+        Route::get('/student/class/add', 'Backend\Setup\StudentClassController@add')->name('setups.student.class.add');
+        Route::post('/student/class/store', 'Backend\Setup\StudentClassController@store')->name('setups.student.class.store');
+        Route::get('/student/class/edit/{id}', 'Backend\Setup\StudentClassController@edit')->name('setups.student.class.edit');
+        Route::post('/student/class/update/{id}', 'Backend\Setup\StudentClassController@update')->name('setups.student.class.update');
+        Route::get('/student/class/delete/{id}', 'Backend\Setup\StudentClassController@delete')->name('setups.student.class.delete');
+
+        //student session
+        Route::get('/student/session/view', 'Backend\Setup\SessionController@view')->name('setups.student.session.view');
+        Route::get('/student/session/add', 'Backend\Setup\SessionController@add')->name('setups.student.session.add');
+        Route::post('/student/session/store', 'Backend\Setup\SessionController@store')->name('setups.student.session.store');
+        Route::get('/student/session/edit/{id}', 'Backend\Setup\SessionController@edit')->name('setups.student.session.edit');
+        Route::post('/student/session/update/{id}', 'Backend\Setup\SessionController@update')->name('setups.student.session.update');
+        Route::get('/student/session/delete/{id}', 'Backend\Setup\SessionController@delete')->name('setups.student.session.delete');
+
+        //student shift
+        Route::get('/student/shift/view', 'Backend\Setup\ShiftController@view')->name('setups.student.shift.view');
+        Route::get('/student/shift/add', 'Backend\Setup\ShiftController@add')->name('setups.student.shift.add');
+        Route::post('/student/shift/store', 'Backend\Setup\ShiftController@store')->name('setups.student.shift.store');
+        Route::get('/student/shift/edit/{id}', 'Backend\Setup\ShiftController@edit')->name('setups.student.shift.edit');
+        Route::post('/student/shift/update/{id}', 'Backend\Setup\ShiftController@update')->name('setups.student.shift.update');
+        Route::get('/student/shift/delete/{id}', 'Backend\Setup\ShiftController@delete')->name('setups.student.shift.delete');
+
+        //student exam type
+        Route::get('/exam/type/view', 'Backend\Setup\ExamTypeController@view')->name('setups.exam.type.view');
+        Route::get('/exam/type/add', 'Backend\Setup\ExamTypeController@add')->name('setups.exam.type.add');
+        Route::post('/exam/type/store', 'Backend\Setup\ExamTypeController@store')->name('setups.exam.type.store');
+        Route::get('/exam/type/edit/{id}', 'Backend\Setup\ExamTypeController@edit')->name('setups.exam.type.edit');
+        Route::post('/exam/type/update/{id}', 'Backend\Setup\ExamTypeController@update')->name('setups.exam.type.update');
+        Route::get('/exam/type/delete/{id}', 'Backend\Setup\ExamTypeController@delete')->name('setups.exam.type.delete');
+
+        //student subject assign
+        Route::get('/subject.view', 'Backend\Setup\SubjectController@view')->name('setups.subject.view');
+        Route::get('/subject.add', 'Backend\Setup\SubjectController@add')->name('setups.subject.add');
+        Route::post('/subject.store', 'Backend\Setup\SubjectController@store')->name('setups.subject.store');
+        Route::get('/subject.edit/{id}', 'Backend\Setup\SubjectController@edit')->name('setups.subject.edit');
+        Route::post('/subject.update/{id}', 'Backend\Setup\SubjectController@update')->name('setups.subject.update');
+        Route::get('/subject.delete/{id}', 'Backend\Setup\SubjectController@delete')->name('setups.subject.delete');
+    });
 });
 

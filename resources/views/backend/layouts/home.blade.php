@@ -74,7 +74,7 @@
             <!-- small box -->
             <div class="small-box bg-danger">
               <div class="inner">
-                <h3>2</h3>
+                <h3>4</h3>
 
                 <p>Shifts</p>
               </div>

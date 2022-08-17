@@ -47,7 +47,7 @@
                             <select name="usertype" id="usertype" class="form-control">
                                 <option value="">Select Role</option>
                                 <option value="Admin">Admin</option>
-                                <option value="User">User</option>
+                                <option value="Operator">Operator</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">

@@ -38,6 +38,12 @@
   </style>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/notify/0.4.2/notify.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+  {{-- Sweet Alert
+  <script src="{{asset('public/backend')}}/sweetalert/sweetalert.js"></script>
+  <link  rel="stylesheet" href="{{asset('public/backend')}}/sweetalert/sweetalert.css">
+  --}}
+
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
@@ -213,6 +219,8 @@
     });
   });
 </script>
+
+
 <script type="text/javascript">
     $(function(){
         $(document).on('click','#delete',function(e){
@@ -239,6 +247,52 @@
         });
     });
 </script>
+
+<!-- Sweet Alert
+<script>
+   $(document).ready(function(){
+        $(document).on('click', #delete1, function(){
+            var actionTo = $(this).attr('href');
+            var token = $(this).attr('data-token');
+            var id = $(this).attr('data-id');
+            swal({
+                title: "Are you sure?",
+                type: "success",
+                showCancelButton: true,
+                confirmButtonClass: 'btn-danger',
+                confirmButtonText: 'Yes',
+                cancelButtonText: 'No',
+                closeOnConfirm: false,
+                closeOnCancel: false
+            },
+            function(isConfirm){
+                if (isConfirm){
+                    $.ajax({
+                        url:actionTo,
+                        type: 'post',
+                        data: {id:id, _token:token},
+                        success: function(data){
+                            swal({
+                                title: "Deleted!",
+                                type: "success"
+                            },
+                            function(isConfirm){
+                                if (isConfirm){
+                                    $('.' + id).fadeOut();
+                                }
+                            });
+                        }
+                    });
+                }else{
+                    swal("Cancelled","","error");
+                }
+            });
+            return false;
+        });
+   });
+</script>
+-->
+
 <script type="text/javascript">
     $(document).ready(function(){
         $('#image').change(function(e){
