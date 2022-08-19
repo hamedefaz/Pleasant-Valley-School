@@ -49,7 +49,6 @@
                   <p>Change Password</p>
                 </a>
               </li>
-
             </ul>
           </li>
 
@@ -93,7 +92,43 @@
                   <p>Student Subject Assign</p>
                 </a>
               </li>
+            </ul>
+          </li>
 
+          <li class="nav-item {{($prefix=='/students')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage Students
+                <i class="fas fa-angle-left right"></i>
+
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('students.registration.view')}}" class="nav-link {{($route=='students.registration.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Student Registration</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('students.registration.fee.view')}}" class="nav-link {{($route=='students.registration.fee.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Registration Fee</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('students.monthly.fee.view')}}" class="nav-link {{($route=='students.monthly.fee.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Monthly Fee</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('students.exam.fee.view')}}" class="nav-link {{($route=='students.exam.fee.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Exam Fee</p>
+                </a>
+              </li>
             </ul>
           </li>
 

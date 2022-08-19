@@ -43,6 +43,8 @@
   <script src="{{asset('public/backend')}}/sweetalert/sweetalert.js"></script>
   <link  rel="stylesheet" href="{{asset('public/backend')}}/sweetalert/sweetalert.css">
   --}}
+  <!-- Daterange Picker -->
+  <link rel="stylesheet" href="{{asset('public/backend')}}/datepicker/daterangepicker.css">
 
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
@@ -202,6 +204,11 @@
 <!-- jquery-validation -->
 <script src="{{asset('public/backend')}}/plugins/jquery-validation/jquery.validate.min.js"></script>
 <script src="{{asset('public/backend')}}/plugins/jquery-validation/additional-methods.min.js"></script>
+<!-- Daterange Picker -->
+<script src="{{asset('public/backend')}}/datepicker/moment.min.js"></script>
+<script src="{{asset('public/backend')}}/datepicker/daterangepicker.js"></script>
+
+<script src="{{asset('public/backend')}}/js/handlebars-v4.7.7.js"></script>
 <script>
   $(function () {
     $("#example1").DataTable({
@@ -292,6 +299,48 @@
    });
 </script>
 -->
+
+{{-- <script type="text/javascript">
+    $(function() {
+      $('.singledatepicker').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        autoUpdateInput: false,
+        autoApply: true,
+        locale: {
+            format: 'DD-MM-YYYY',
+            daysOfWeek: ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'],
+            firstDay: 0
+        },
+        minDate: '01/01/1930'
+      },
+      function(start){
+        this.element.val(start.format('DD-MM-YYYY'));
+        this.element.parent().parent().removeclass('has-error');
+      },
+      function(chosen_date){
+        this.element.val(chosen_date.format('DD-MM-YYYY'));
+      });
+      $('.singleDatePicker').on('apply.daterangepicker', function(ev, picker){
+        $(this).val(picker.startDate.format('DD-MM-YYYY'));
+        $(this).trigger('change');
+      });
+    });
+</script> --}}
+
+<script>
+    $(function() {
+      $('.singledatepicker').daterangepicker({
+        singleDatePicker: true,
+        showDropdowns: true,
+        minYear: 1901,
+        maxYear: parseInt(moment().format('YYYY'),10)
+      }, function(start, end, label) {
+        var years = moment().diff(start, 'years');
+      });
+    });
+    </script>
+</script>
 
 <script type="text/javascript">
     $(document).ready(function(){

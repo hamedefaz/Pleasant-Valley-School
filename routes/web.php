@@ -85,5 +85,32 @@ Route::group(['middleware'=>'auth'], function(){
         Route::post('/subject.update/{id}', 'Backend\Setup\SubjectController@update')->name('setups.subject.update');
         Route::get('/subject.delete/{id}', 'Backend\Setup\SubjectController@delete')->name('setups.subject.delete');
     });
+
+    Route::prefix('students')->group(function(){
+        Route::get('/reg/view', 'Backend\Student\StudentRegController@view')->name('students.registration.view');
+        Route::get('/reg/add', 'Backend\Student\StudentRegController@add')->name('students.registration.add');
+        Route::post('/reg/store', 'Backend\Student\StudentRegController@store')->name('students.registration.store');
+        Route::get('/reg/edit/{student_id}', 'Backend\Student\StudentRegController@edit')->name('students.registration.edit');
+        Route::post('/reg/update/{student_id}', 'Backend\Student\StudentRegController@update')->name('students.registration.update');
+        Route::get('/session-class-wise', 'Backend\Student\StudentRegController@sessionClassWise')->name('students.session.class.wise');
+        Route::get('/reg/promotion/{student_id}', 'Backend\Student\StudentRegController@promotion')->name('students.registration.promotion');
+        Route::post('/reg/promotion/{student_id}', 'Backend\Student\StudentRegController@promotionStore')->name('students.registration.promotion.store');
+        Route::get('/reg/details/{student_id}', 'Backend\Student\StudentRegController@details')->name('students.registration.details');
+
+        //student registration fee
+        Route::get('/reg/fee/view', 'Backend\Student\RegistrationFeeController@view')->name('students.registration.fee.view');
+        Route::get('/reg/get-student', 'Backend\Student\RegistrationFeeController@getStudent')->name('students.registration.fee.get-student');
+        Route::get('/reg/payslip', 'Backend\Student\RegistrationFeeController@paySlip')->name('students.registration.fee.payslip');
+
+        //student monthly fee
+        Route::get('/month/fee/view', 'Backend\Student\MonthlyFeeController@view')->name('students.monthly.fee.view');
+        Route::get('/month/get-student', 'Backend\Student\MonthlyFeeController@getStudent')->name('students.monthly.fee.get-student');
+        Route::get('/month/payslip', 'Backend\Student\MonthlyFeeController@paySlip')->name('students.monthly.fee.payslip');
+
+         //student exam fee
+         Route::get('/exam/fee/view', 'Backend\Student\ExamFeeController@view')->name('students.exam.fee.view');
+         Route::get('/exam/get-student', 'Backend\Student\ExamFeeController@getStudent')->name('students.exam.fee.get-student');
+         Route::get('/exam/payslip', 'Backend\Student\ExamFeeController@paySlip')->name('students.exam.fee.payslip');
+    });
 });
 
