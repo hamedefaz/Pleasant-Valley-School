@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Student Details</title>
+    <title>Employee Details</title>
      <!-- iCheck -->
   <link rel="stylesheet" href="{{asset('public/backend')}}/plugins/icheck-bootstrap/icheck-bootstrap.min.css">
     <style type="text/css">
@@ -75,60 +75,66 @@
                             <h5><strong>Chico, California</strong></h5>
                             <h6><strong>http://pvhs.chicousd.org/</strong></h6>
                         </td>
-                        <td class="text-center"><img src="{{url('public/upload/student_images/'.$details['student']['image'])}}" style="width: 100px; height: 100px"></td>
+                        <td class="text-center"><img src="{{url('public/upload/employee_images/'.$details->image)}}" style="width: 100px; height: 100px"></td>
                     </tr>
                 </table>
             </div>
             <div class="col-md-12 text-center">
-                <h5 style="font-weight: bold; padding-top: -25px">Student Registration Card</h5>
+                <h5 style="font-weight: bold; padding-top: -25px">Employee Details Document</h5>
             </div>
             <div class="col-md-12">
                 <table border="1" width="100%">
                     <tbody>
                         <tr>
-                            <td style="width; 50%">Student Name</td>
-                            <td>{{$details['student']['name']}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width; 50%">Father's Name</td>
-                            <td>{{$details['student']['fname']}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width; 50%">Mother's Name</td>
-                            <td>{{$details['student']['mname']}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width; 50%">Session</td>
-                            <td>{{$details['session']['name']}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width; 50%">Class</td>
-                            <td>{{$details['student_class']['name']}}</td>
+                            <td style="width; 50%">Designation</td>
+                            <td>{{$details['designation']['name']}}</td>
                         </tr>
                         <tr>
                             <td style="width; 50%">ID No.</td>
-                            <td>{{$details['student']['id_no']}}</td>
+                            <td>{{$details->id_no}}</td>
                         </tr>
                         <tr>
-                            <td style="width; 50%">Mobile No.</td>
-                            <td>{{$details['student']['mobile']}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width; 50%">Address</td>
-                            <td>{{$details['student']['address']}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width; 50%">Gender</td>
-                            <td>{{$details['student']['gender']}}</td>
-                        </tr>
-                        <tr>
-                            <td style="width; 50%">Religion</td>
-                            <td>{{$details['student']['religion']}}</td>
+                            <td style="width; 50%">Employee Name</td>
+                            <td>{{$details->name}}</td>
                         </tr>
                         <tr>
                             <td style="width; 50%">Date of Birth</td>
-                            <td>{{date('d-m-Y', strtotime($details['student']['dob']))}}</td>
+                            <td>{{date('d-m-Y', strtotime($details->dob))}}</td>
                         </tr>
+                        <tr>
+                            <td style="width; 50%">Father's Name</td>
+                            <td>{{$details->fname}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width; 50%">Mother's Name</td>
+                            <td>{{$details->mname}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width; 50%">Mobile No.</td>
+                            <td>{{$details->mobile}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width; 50%">Address</td>
+                            <td>{{$details->address}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width; 50%">Gender</td>
+                            <td>{{$details->gender}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width; 50%">Religion</td>
+                            <td>{{$details->religion}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width; 50%">Joining Date</td>
+                            <td>{{date('d-m-Y', strtotime($details->join_date))}}</td>
+                        </tr>
+                        <tr>
+                            <td style="width; 50%">Salary</td>
+                            <td>${{$details->salary}}</td>
+                        </tr>
+
+
                     </tbody>
                 </table>
                 <i style="font-size: 10px; float: right;">Printed On: {{date("d M Y")}}</i>

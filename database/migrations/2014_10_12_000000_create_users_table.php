@@ -31,6 +31,7 @@ class CreateUsersTable extends Migration
             $table->date('dob')->nullable();
             $table->date('join_date')->nullable();
             $table->integer('designation_id')->nullable();
+            $table->double('salary')->nullable();
             $table->tinyInteger('status')->default(1);
             $table->rememberToken();
             $table->timestamps();

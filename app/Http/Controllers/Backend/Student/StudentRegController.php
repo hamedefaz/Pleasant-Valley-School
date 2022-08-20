@@ -81,7 +81,7 @@ class StudentRegController extends Controller
             $user->dob = date('Y-m-d', strtotime($request->dob));
             if ($request->file('image')){
                 $file = $request->file('image');
-                @unlink(public_path('upload/studnent_images/'.$user->image));
+                @unlink(public_path('upload/student_images/'.$user->image));
                 $filename = date('YmdHi').$file->getClientOriginalName();
                 $file->move(public_path('upload/student_images'),$filename);
                 $user['image'] = $filename;
@@ -138,7 +138,7 @@ class StudentRegController extends Controller
 
 
         });
-        return redirect()->route('students.registration.view')->with('success', 'Data Insertion Successful!');
+        return redirect()->route('students.registration.view')->with('success', 'Data Updated Successfully!');
     }
 
     public function promotion($student_id){

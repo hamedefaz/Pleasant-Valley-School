@@ -112,5 +112,34 @@ Route::group(['middleware'=>'auth'], function(){
          Route::get('/exam/get-student', 'Backend\Student\ExamFeeController@getStudent')->name('students.exam.fee.get-student');
          Route::get('/exam/payslip', 'Backend\Student\ExamFeeController@paySlip')->name('students.exam.fee.payslip');
     });
+
+    Route::prefix('employees')->group(function(){
+        Route::get('/reg/view', 'Backend\Employee\EmployeeRegController@view')->name('employees.registration.view');
+        Route::get('/reg/add', 'Backend\Employee\EmployeeRegController@add')->name('employees.registration.add');
+        Route::post('/reg/store', 'Backend\Employee\EmployeeRegController@store')->name('employees.registration.store');
+        Route::get('/reg/edit/{id}', 'Backend\Employee\EmployeeRegController@edit')->name('employees.registration.edit');
+        Route::post('/reg/update/{id}', 'Backend\Employee\EmployeeRegController@update')->name('employees.registration.update');
+        Route::get('/reg/details/{id}', 'Backend\Employee\EmployeeRegController@details')->name('employees.registration.details');
+
+        //employee salary
+        Route::get('/salary/view', 'Backend\Employee\EmployeeSalaryController@view')->name('employees.salary.view');
+        Route::get('/salary/increment/{id}', 'Backend\Employee\EmployeeSalaryController@increment')->name('employees.salary.increment');
+        Route::post('/salary/store/{id}', 'Backend\Employee\EmployeeSalaryController@store')->name('employees.salary.store');
+        Route::get('/salary/details/{id}', 'Backend\Employee\EmployeeSalaryController@details')->name('employees.salary.details');
+
+        //employee leave
+        Route::get('/leave/view', 'Backend\Employee\EmployeeLeaveController@view')->name('employees.leave.view');
+        Route::get('/leave/add', 'Backend\Employee\EmployeeLeaveController@add')->name('employees.leave.add');
+        Route::post('/leave/store', 'Backend\Employee\EmployeeLeaveController@store')->name('employees.leave.store');
+        Route::get('/leave/edit/{id}', 'Backend\Employee\EmployeeLeaveController@edit')->name('employees.leave.edit');
+        Route::post('/leave/update/{id}', 'Backend\Employee\EmployeeLeaveController@update')->name('employees.leave.update');
+
+        //employee attendance
+        Route::get('/attend/view', 'Backend\Employee\EmployeeAttendanceController@view')->name('employees.attendance.view');
+        Route::get('/attend/add', 'Backend\Employee\EmployeeAttendanceController@add')->name('employees.attendance.add');
+        Route::post('/attend/store', 'Backend\Employee\EmployeeAttendanceController@store')->name('employees.attendance.store');
+        Route::get('/attend/edit/{id}', 'Backend\Employee\EmployeeAttendanceController@edit')->name('employees.attendance.edit');
+        Route::post('/attend/update/{id}', 'Backend\Employee\EmployeeAttendanceController@update')->name('employees.attendance.update');
+    });
 });
 

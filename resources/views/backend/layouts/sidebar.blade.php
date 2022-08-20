@@ -132,6 +132,41 @@
             </ul>
           </li>
 
+          <li class="nav-item {{($prefix=='/employees')?'menu-open':''}}">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-copy"></i>
+              <p>
+                Manage Employees
+                <i class="fas fa-angle-left right"></i>
+
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="{{route('employees.registration.view')}}" class="nav-link {{($route=='employees.registration.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Registration</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('employees.salary.view')}}" class="nav-link {{($route=='employees.salary.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Salary</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('employees.leave.view')}}" class="nav-link {{($route=='employees.leave.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Leave Record</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="{{route('employees.attendance.view')}}" class="nav-link {{($route=='employees.attendance.view')?'active':''}}">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Employee Attendance</p>
+                </a>
+              </li>
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
