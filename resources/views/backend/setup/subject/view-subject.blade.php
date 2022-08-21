@@ -43,7 +43,7 @@
                     <thead>
                         <tr>
                             <th>SL.</th>
-                            <th>Subjec Namet</th>
+                            <th>Subjec Name</th>
                             <th>Action</th>
                         </tr>
                     </thead>

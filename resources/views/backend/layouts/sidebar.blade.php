@@ -166,7 +166,26 @@
                   <p>Employee Attendance</p>
                 </a>
               </li>
+             </ul>
+            </li>
 
-        </ul>
+          <li class="nav-item {{($prefix=='/marks')?'menu-open':''}}">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    Manage Marks
+                    <i class="fas fa-angle-left right"></i>
+
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li class="nav-item">
+                    <a href="{{route('marks.view')}}" class="nav-link {{($route=='marks.view')?'active':''}}">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Marks Entry</p>
+                    </a>
+                  </li>
+                </li>
+            </ul>
       </nav>
       <!-- /.sidebar-menu -->

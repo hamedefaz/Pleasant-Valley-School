@@ -141,5 +141,13 @@ Route::group(['middleware'=>'auth'], function(){
         Route::get('/attend/edit/{id}', 'Backend\Employee\EmployeeAttendanceController@edit')->name('employees.attendance.edit');
         Route::post('/attend/update/{id}', 'Backend\Employee\EmployeeAttendanceController@update')->name('employees.attendance.update');
     });
+
+    Route::prefix('marks')->group(function(){
+        Route::get('/view', 'Backend\Marks\MarksController@view')->name('marks.view');
+        Route::get('/add', 'Backend\Marks\MarksController@add')->name('marks.add');
+        Route::post('/store', 'Backend\Marks\MarksController@store')->name('marks.store');
+        Route::get('/edit/{id}', 'Backend\Marks\MarksController@edit')->name('marks.edit');
+        Route::post('/update/{id}', 'Backend\Marks\MarksController@update')->name('marks.update');
+    });
 });
 
