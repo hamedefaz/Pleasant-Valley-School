@@ -149,5 +149,16 @@ Route::group(['middleware'=>'auth'], function(){
         Route::get('/edit/{id}', 'Backend\Marks\MarksController@edit')->name('marks.edit');
         Route::post('/update/{id}', 'Backend\Marks\MarksController@update')->name('marks.update');
     });
+
+    Route::prefix('reports')->group(function(){
+        //attendance report
+        Route::get('/attendance/view', 'Backend\Report\ReportsController@attendanceView')->name('reports.attendance.view');
+        Route::get('/attendance/get', 'Backend\Report\ReportsController@attendanceGet')->name('reports.attendance.get');
+
+        //student id card
+        Route::get('/id-card/view', 'Backend\Report\IDCardController@idCardView')->name('reports.id-card.view');
+        Route::get('/id-card/get', 'Backend\Report\IDCardController@idCardGet')->name('reports.id-card.get');
+
+    });
 });
 

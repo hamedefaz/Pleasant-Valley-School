@@ -47,7 +47,7 @@
                             <select name="usertype" id="usertype" class="form-control">
                                 <option value="">Select Role</option>
                                 <option value="Admin" {{($editData->usertype=="Admin")?"selected":""}}>Admin</option>
-                                <option value="User" {{($editData->usertype=="Operator")?"selected":""}}>Operator</option>
+                                <option value="Operator" {{($editData->usertype=="Operator")?"selected":""}}>Operator</option>
                             </select>
                         </div>
                         <div class="form-group col-md-4">

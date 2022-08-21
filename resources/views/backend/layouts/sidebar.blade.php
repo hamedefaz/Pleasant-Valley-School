@@ -187,5 +187,33 @@
                   </li>
                 </li>
             </ul>
+        </li>
+
+                <li class="nav-item {{($prefix=='/reports')?'menu-open':''}}">
+                    <a href="#" class="nav-link">
+                      <i class="nav-icon fas fa-copy"></i>
+                      <p>
+                        Manage Reports
+                        <i class="fas fa-angle-left right"></i>
+
+                      </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                      <li class="nav-item">
+                        <a href="{{route('reports.attendance.view')}}" class="nav-link {{($route=='reports.attendance.view')?'active':''}}">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Attendance Report</p>
+                        </a>
+                      </li>
+                      <li class="nav-item">
+                        <a href="{{route('reports.id-card.view')}}" class="nav-link {{($route=='reports.id-card.view')?'active':''}}">
+                          <i class="far fa-circle nav-icon"></i>
+                          <p>Student ID Card</p>
+                        </a>
+                      </li>
+                    </li>
+                </ul>
+            </li>
+
       </nav>
       <!-- /.sidebar-menu -->
